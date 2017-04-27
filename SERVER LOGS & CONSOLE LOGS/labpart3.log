@@ -1,0 +1,49 @@
+mysql> show engine;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show engine
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show variables like '%buffer%size';
++-------------------------------+-----------+
+| Variable_name                 | Value     |
++-------------------------------+-----------+
+| bulk_insert_buffer_size       | 8388608   |
+| innodb_buffer_pool_chunk_size | 8388608   |
+| innodb_buffer_pool_size       | 8388608   |
+| innodb_change_buffer_max_size | 25        |
+| innodb_log_buffer_size        | 1048576   |
+| innodb_sort_buffer_size       | 1048576   |
+| join_buffer_size              | 262144    |
+| key_buffer_size               | 8388608   |
+| myisam_sort_buffer_size       | 377487360 |
+| preload_buffer_size           | 32768     |
+| read_buffer_size              | 65536     |
+| read_rnd_buffer_size          | 262144    |
+| sort_buffer_size              | 262144    |
++-------------------------------+-----------+
+13 rows in set (0.00 sec)
+
+mysql> show enginesl
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'enginesl' at line 1
+mysql> show enginesl
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'enginesl' at line 1
+mysql> show engines;
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
+| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
+| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |
+| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |
+| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
+| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
+| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
+| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |
+| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+9 rows in set (0.03 sec)
+
+mysql> select engine();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '()' at line 1

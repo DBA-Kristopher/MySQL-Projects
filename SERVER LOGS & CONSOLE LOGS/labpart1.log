@@ -1,0 +1,73 @@
+mysql> SHOW information_schema;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'information_schema' at line 1
+mysql> SHOW INFORMATION_SCHEMA;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INFORMATION_SCHEMA' at line 1
+mysql> SHOW INFORMATION_SCHEMA
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INFORMATION_SCHEMA' at line 1
+mysql> show variables like "%sort%buffer%size%"&& "%read%buffer%size%";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&& "%read%buffer%size%"' at line 1
+mysql> show variables like "%buffer%" && "%size%";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&& "%size%"' at line 1
+mysql> show varibales like "%buffer%" ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varibales like "%buffer%"' at line 1
+mysql> show variables like '%buffer%';
++-------------------------------------+----------------+
+| Variable_name                       | Value          |
++-------------------------------------+----------------+
+| bulk_insert_buffer_size             | 8388608        |
+| innodb_buffer_pool_chunk_size       | 8388608        |
+| innodb_buffer_pool_dump_at_shutdown | ON             |
+| innodb_buffer_pool_dump_now         | OFF            |
+| innodb_buffer_pool_dump_pct         | 25             |
+| innodb_buffer_pool_filename         | ib_buffer_pool |
+| innodb_buffer_pool_instances        | 1              |
+| innodb_buffer_pool_load_abort       | OFF            |
+| innodb_buffer_pool_load_at_startup  | ON             |
+| innodb_buffer_pool_load_now         | OFF            |
+| innodb_buffer_pool_size             | 8388608        |
+| innodb_change_buffer_max_size       | 25             |
+| innodb_change_buffering             | all            |
+| innodb_log_buffer_size              | 1048576        |
+| innodb_sort_buffer_size             | 1048576        |
+| join_buffer_size                    | 262144         |
+| key_buffer_size                     | 8388608        |
+| myisam_sort_buffer_size             | 377487360      |
+| net_buffer_length                   | 16384          |
+| preload_buffer_size                 | 32768          |
+| read_buffer_size                    | 65536          |
+| read_rnd_buffer_size                | 262144         |
+| sort_buffer_size                    | 262144         |
+| sql_buffer_result                   | OFF            |
++-------------------------------------+----------------+
+24 rows in set (0.06 sec)
+
+mysql> show variables like '%sort%buffer%size%' && '%read%buffer%size%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&& '%read%buffer%size%'' at line 1
+mysql> show variables like '%buffer%size';
++-------------------------------+-----------+
+| Variable_name                 | Value     |
++-------------------------------+-----------+
+| bulk_insert_buffer_size       | 8388608   |
+| innodb_buffer_pool_chunk_size | 8388608   |
+| innodb_buffer_pool_size       | 8388608   |
+| innodb_change_buffer_max_size | 25        |
+| innodb_log_buffer_size        | 1048576   |
+| innodb_sort_buffer_size       | 1048576   |
+| join_buffer_size              | 262144    |
+| key_buffer_size               | 8388608   |
+| myisam_sort_buffer_size       | 377487360 |
+| preload_buffer_size           | 32768     |
+| read_buffer_size              | 65536     |
+| read_rnd_buffer_size          | 262144    |
+| sort_buffer_size              | 262144    |
++-------------------------------+-----------+
+13 rows in set (0.00 sec)
+
+mysql> set read_buffer_size = 128000;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> set sort_buffer_size = 128000;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> notee;

@@ -1,0 +1,122 @@
+mysql> show database();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database()' at line 1
+mysql> show databases();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '()' at line 1
+mysql> use deverydmb438;
+ERROR 1049 (42000): Unknown database 'deverydmb438'
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| 5 ilab             |
+| 5 projectweek      |
+| 6                  |
+| 6 ilab             |
+| baseball           |
+| baseball2016       |
+| cis337             |
+| devrydbm438        |
+| mysql              |
+| mytest             |
+| new                |
+| performance_schema |
+| sys                |
++--------------------+
+14 rows in set (0.13 sec)
+
+mysql> use devrydbm438;
+Database changed
+mysql> show master status;
+Empty set (0.03 sec)
+
+mysql> Use [master];
+ERROR 1049 (42000): Unknown database '[master]'
+mysql> use master;
+ERROR 1049 (42000): Unknown database 'master'
+mysql> use [master];
+ERROR 1049 (42000): Unknown database '[master]'
+mysql> alter database devrydbm438 set read_only with no_wait;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set read_only with no_wait' at line 1
+mysql> use [master]
+ERROR 1049 (42000): Unknown database '[master]'
+mysql> use [master] go
+ERROR 1049 (42000): Unknown database '[master]'
+mysql> USE [master]
+ERROR 1049 (42000): Unknown database '[master]'
+mysql> GO
+ERROR: 
+No query specified
+
+mysql> ALTER DATABASE [MyDB] SET READ_ONLY WITH NO_WAIT
+    -> GOUSE [master]
+    -> GO
+    -> ALTER DATABASE [MyDB] SET READ_ONLY WITH NO_WAIT
+    -> GO
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[MyDB] SET READ_ONLY WITH NO_WAIT
+GOUSE [master]
+GO
+ALTER DATABASE [MyDB] SET RE' at line 1
+mysql> show tables;
++-----------------------+
+| Tables_in_devrydbm438 |
++-----------------------+
+| author                |
+| bonus                 |
+| book_author           |
+| book_customer         |
+| book_order            |
+| books                 |
+| dept                  |
+| emp                   |
+| order_items           |
+| promotion             |
+| publisher             |
+| salgrade              |
++-----------------------+
+12 rows in set (0.00 sec)
+
+mysql> alter table author with nocheck add constraint chk_read_only check (1=0);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nocheck add constraint chk_read_only check (1=0)' at line 1
+mysql> alter table author with no check add constraint chk_read_only check(1=0)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'no check add constraint chk_read_only check(1=0)' at line 1
+mysql> alter table author with nocheck add constraint chk_read_oly check(1=0);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nocheck add constraint chk_read_oly check(1=0)' at line 1
+mysql> flush tables with read lock;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set global read_only = 1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show variables where variable_name like "%dir";
++---------------------------+---------------------------------------------------------+
+| Variable_name             | Value                                                   |
++---------------------------+---------------------------------------------------------+
+| basedir                   | C:\Program Files\MySQL\MySQL Server 5.7\                |
+| character_sets_dir        | C:\Program Files\MySQL\MySQL Server 5.7\share\charsets\ |
+| datadir                   | C:\ProgramData\MySQL\MySQL Server 5.7\Data\             |
+| innodb_data_home_dir      |                                                         |
+| innodb_log_group_home_dir | .\                                                      |
+| lc_messages_dir           | C:\Program Files\MySQL\MySQL Server 5.7\share\          |
+| plugin_dir                | C:\Program Files\MySQL\MySQL Server 5.7\lib\plugin\     |
+| slave_load_tmpdir         | C:\Windows\SERVIC~2\NETWOR~1\AppData\Local\Temp         |
+| tmpdir                    | C:\Windows\SERVIC~2\NETWOR~1\AppData\Local\Temp         |
++---------------------------+---------------------------------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> show variable where value like "%devry%"";
+    "> ;
+    "> ;;
+    "> sfl''
+    "> "
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'variable where value like "%devry%"";
+;
+;;
+sfl''
+"' at line 1
+mysql> show vaiable where value like "%devry%";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'vaiable where value like "%devry%"' at line 1
+mysql> exit

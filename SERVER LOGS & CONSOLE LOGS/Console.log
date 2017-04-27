@@ -1,0 +1,75 @@
+mysql> select users, host from mysql.user;
+ERROR 1054 (42S22): Unknown column 'users' in 'field list'
+mysql> select user, host from mysql.user;
++-----------+-----------+
+| user      | host      |
++-----------+-----------+
+| root      | %         |
+| mysql.sys | localhost |
+| root      | localhost |
++-----------+-----------+
+3 rows in set (0.05 sec)
+
+mysql> create user 'BOB'@'localhost' IDENTIFIED BY 'ALONG';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> select user, host from mysql.user;
++-----------+-----------+
+| user      | host      |
++-----------+-----------+
+| root      | %         |
+| mysql.sys | localhost |
+| root      | localhost |
++-----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> create user 'BOB'@'localhost' IDENTIFIED BY 'along';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> Set global validat_password_length=5;
+ERROR 1193 (HY000): Unknown system variable 'validat_password_length'
+mysql> set global validate_password_length;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SET GLOBAL validate_password_length=5;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create user 'BOB'@'localhost' indentified by 'ALONG';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'indentified by 'ALONG'' at line 1
+mysql> create user 'BOB'@'localhost' INDENTIFIED BY 'ALONG';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INDENTIFIED BY 'ALONG'' at line 1
+mysql> create user 'BOB' @ 'localhost' IDENTIFIED BY 'ALONG';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''localhost' IDENTIFIED BY 'ALONG'' at line 1
+mysql> create user 'bob'@'localhost' identified by 'along';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+mysql> show variables like 'validate_password%';
++--------------------------------------+--------+
+| Variable_name                        | Value  |
++--------------------------------------+--------+
+| validate_password_dictionary_file    |        |
+| validate_password_length             | 5      |
+| validate_password_mixed_case_count   | 1      |
+| validate_password_number_count       | 1      |
+| validate_password_policy             | MEDIUM |
+| validate_password_special_char_count | 1      |
++--------------------------------------+--------+
+6 rows in set (0.08 sec)
+
+mysql> set global validate_password_policy=LOW;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create user 'bob'@'localhost' identified by 'ALONG';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> grant create, insert, update, select drop on devrydbm438.* to 'bob'@'localhost';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'drop on devrydbm438.* to 'bob'@'localhost'' at line 1
+mysql> grant create, insert, update, select, drop on devrydbm438.* to 'bob'@'localhost';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show grants for bob@localhost;
++------------------------------------------------------------------------------------+
+| Grants for bob@localhost                                                           |
++------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'bob'@'localhost'                                            |
+| GRANT SELECT, INSERT, UPDATE, CREATE, DROP ON `devrydbm438`.* TO 'bob'@'localhost' |
++------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> exit

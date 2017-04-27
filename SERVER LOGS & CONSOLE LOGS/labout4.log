@@ -1,0 +1,9 @@
+mysql> use devrydbm438;
+Database changed
+mysql> select * from emp;
+ERROR 1033 (HY000): Incorrect information in file: '.\devrydbm438\emp.frm'
+mysql> source C:\Users\James Flond\Documents\Devry Classes\DBM 438\Week 7\dbackup.sql
+mysql> ;
+ERROR: 
+No query specified
+

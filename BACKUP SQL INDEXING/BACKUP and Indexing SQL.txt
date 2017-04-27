@@ -1,0 +1,418 @@
+Create database baseball;
+USE baseball;
+
+Create table Teams 
+(
+
+Teamconde VARCHAR(2),
+TNam varchar(20),
+TAddress varchar(30),
+TCity varchar(20),
+TState char(2),
+TZip varchar(7),
+Wins int,
+Losses int
+
+);
+
+Insert into Teams values('01' , 'Packers', 'West Bill St. 1450', 'Los Angeles', 'CA', '84493', 4, 6 );
+Insert into Teams values('02' , 'Hackers', 'East Bill St. 1450', 'New York', 'NY', '45265', 14, 0 );
+Insert into Teams values('03' , 'Snackers', 'North Bill St. 1450', 'New Jersy', 'NJ', '25493', 5, 2 );
+Insert into Teams values('04' , 'Crackers', 'South Bill St. 1450', 'Phonix', 'AZ', '94457', 7, 6 );
+
+Insert into Teams values('05' , 'Attackers', 'West Jill St. 5421', 'Vegas', 'NV', '65493', 6, 6 );
+Insert into Teams values('06' , 'Shackers', 'East Jill St. 1546', 'San Marcos', 'CA', '54493', 2, 3 );
+Insert into Teams values('07' , 'Flackers', 'North Jill St. 1800', 'Denver', 'CO', '36493', 15, 6 );
+Insert into Teams values('08' , 'Mackers', 'South Jill St. 9665', 'Silversprings', 'CA', '78493', 6, 4 );
+Drop table Players;
+Create table Players
+(
+Fname varchar(20),
+Lname varchar(30),
+MidInit char(1),
+Paddress varchar(30),
+Pcity varchar(20),
+Pstate char(2),
+Pzip varchar(9),
+Phone varchar(15),
+Teamcode varchar(2)
+);
+
+#Team 1 Players
+Insert into Players values('Steve', 'Jobs', 'T', '245 Rossevelt Ave', 'Los Angeles', 'CA', '84493', '1236549876', '01');
+Insert into Players values('Jill', 'Jack', 'W', '956 Creekside Drive', 'Los Angeles', 'CA', '84493', '583959294', '01');
+Insert into Players values('Dick', 'Smith', 'A', '5363 Ridge Ave', 'Los Angeles', 'CA', '84493', '4859283838', '01');
+Insert into Players values('Rick', 'Flint', 'D', '3636 Meadow St', 'Los Angeles', 'CA', '84493', '703305938', '01');
+Insert into Players values('Nick', 'Hill', 'H', '7434 5th St', 'Los Angeles', 'CA', '84493', '1236548545', '01');
+
+Insert into Players values('Chick', 'Trump', 'H', '746 Mill Road', 'Los Angeles', 'CA', '84493', '1523652154', '01');
+Insert into Players values('Flick', 'Obama', 'J', '532 York Road', 'Los Angeles', 'CA', '84493', '1546874236', '01');
+Insert into Players values('West', 'Dill', 'J', '63335 Winston Ave', 'Los Angeles', 'CA', '84493', '125468451', '01');
+Insert into Players values('Holly', 'West', 'E', '36363 North ave', 'Los Angeles', 'CA', '84493', '1554662', '01');
+Insert into Players values('Trump', 'Keyes', 'U', '36324 Northville drive', 'Los Angeles', 'CA', '84493', '125453882', '01');
+#Team 2 Players
+Insert into Players values('Taco', 'Jon', 'G', '685 Lexington', 'New York', 'NY', '45265', '32651548136', '02');
+Insert into Players values('Maco', 'Avery', 'A', '6538 Ridge ave', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Laco', 'Taylor', 'H', '74764 West drive', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Caco', 'Black', 'J', '36324 Cambridge drive', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Naco', 'Reid', 'J', '724 Brandywine drive', 'New York', 'NY', '45265', '125453882', '02');
+
+Insert into Players values('Paco', 'Young', 'U', '3593 Cherry drive', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Faco', 'Bell', 'R', '674 Pleasent drive', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Staco', 'North', 'K', '7453 Northville drive', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Oaco', 'Grant', 'B', '5635 Mill Road drive', 'New York', 'NY', '45265', '125453882', '02');
+Insert into Players values('Eaco', 'King', 'V', '634 Williams Lane', 'New York', 'NY', '45265', '125453882', '02');
+
+#Team 3 Players
+Insert into Players values('Anna', 'Russell', 'U', '73493 Maiden drive', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Nash', 'Hannah', 'Q', '12445 New drive', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Sally', 'Keyes', 'W', '7434 12th lane', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Brain', 'Gill', 'Y', '36324 Locust drive', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Frank', 'Hodges', 'Y', '16324 Ridge drive', 'New Jersy', 'NJ','25493','125453882', '03');
+
+Insert into Players values('Oliver', 'Hart', 'G', '3632 Durham drive', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Eric', 'Arnold', 'D', '12 Warren Ave', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Dorothy', 'Forsyth', 'L', '731 Queen st', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Nathan', 'Blake', 'N', '1626 Route 11', 'New Jersy', 'NJ','25493','125453882', '03');
+Insert into Players values('Taylor', 'McLean', 'M', '61222 Jefferson St', 'New Jersy', 'NJ','25493','125453882', '03');
+
+#Team 4 Players
+Insert into Players values('Trump', 'Keyes', 'U', '36324 Northville drive', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Steve', 'Jobs', 'T', '245 Rossevelt Ave', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Jill', 'Jack', 'W', '956 Creekside Drive', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Staco', 'North', 'K', '7453 Northville drive', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Oliver', 'Hart', 'G', '2885 1st street', 'Phonix', 'AZ', '94457', '125453882', '04');
+
+Insert into Players values('Sally', 'Keyes', 'W', '7434 12th lane', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Chick', 'Trump', 'H', '746 Mill Road', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Eric', 'Arnold', 'D', '91145 Fulton st', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Sally', 'Keyes', 'W', '7434 12th lane', 'Phonix', 'AZ', '94457', '125453882', '04');
+Insert into Players values('Frank', 'Hodges', 'Y', '16324 Ridge drive','Phonix', 'AZ', '94457', '125453882', '04');
+#Team 5 Players
+Insert into Players values('Dick', 'Smith', 'A', '5363 Ridge Ave',  'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Maco', 'Avery', 'A', '6538 Ridge ave', 'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Faco', 'Bell', 'R', '674 Pleasent drive', 'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('West', 'Dill', 'J', '63335 Winston Ave','Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Anna', 'Russell', 'U', '73493 Maiden drive', 'Vegas', 'NV', '65493', '125453882', '05');
+
+Insert into Players values('Oliver', 'Hart', 'G', '2885 1st street', 'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Nathan', 'Blake', 'N', '1626 Route 11',  'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Holly', 'West', 'E', '36363 North ave', 'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Caco', 'Black', 'J', '36324 Cambridge drive', 'Vegas', 'NV', '65493', '125453882', '05');
+Insert into Players values('Staco', 'North', 'K', '7453 Northville drive',  'Vegas', 'NV', '65493', '125453882', '05');
+
+#Team 6 Players
+Insert into Players values('Faco', 'Bell', 'R', '674 Pleasent drive',  'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Dick', 'Smith', 'A', '5363 Ridge Ave', 'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Oliver', 'Hart', 'G', '2885 1st street', 'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Jill', 'Jack', 'W', '956 Creekside Drive', 'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('West', 'Dill', 'J', '63335 Winston Ave','San Marcos', 'CA', '54493', '125453882', '06');
+
+Insert into Players values('Steve', 'Jobs', 'T', '245 Rossevelt Ave', 'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Anna', 'Russell', 'U', '73493 Maiden drive',  'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Trump', 'Keyes', 'U', '2452 Park Ave', 'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Taco', 'Jon', 'G', '685 Lexington', 'San Marcos', 'CA', '54493', '125453882', '06');
+Insert into Players values('Nathan', 'Blake', 'N', '1626 Route 11',  'San Marcos', 'CA', '54493', '125453882', '06');
+#Team 7 Players
+Insert into Players values('Staco', 'North', 'K', '7453 Northville drive',  'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Maco', 'Avery', 'A', '6538 Ridge ave',  'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Oliver', 'Hart', 'G', '3632 Durham drive', 'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Taylor', 'McLean', 'M', '61222 Jefferson St',  'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Faco', 'Bell', 'R', '674 Pleasent drive',  'Denver', 'CO', '36493', '125453882', '07');
+
+Insert into Players values('Chick', 'Trump', 'H', '746 Mill Road',  'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Laco', 'Taylor', 'H', '74764 West drive', 'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Naco', 'Reid', 'J', '724 Brandywine drive',   'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Flick', 'Obama', 'J', '532 York Road',  'Denver', 'CO', '36493', '125453882', '07');
+Insert into Players values('Nick', 'Hill', 'H', '7434 5th St',  'Denver', 'CO', '36493', '125453882', '07');
+#Team 8 Players
+Insert into Players values('Holly', 'West', 'E', '36363 North ave',  'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Caco', 'Black', 'J', '36324 Cambridge drive', 'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Staco', 'North', 'K', '7453 Northville drive', 'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Rick', 'Flint', 'D', '3636 Meadow St',  'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Anna', 'Russell', 'U', '73493 Maiden drive', 'Silversprings', 'CA', '78493', '125453882', '08');
+
+Insert into Players values('Eaco', 'King', 'V', '634 Williams Lane', 'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Nash', 'Hannah', 'Q', '12445 New drive',  'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Steve', 'Jobs', 'T', '245 Rossevelt Ave', 'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Trump', 'Keyes', 'U', '22352 York Ave', 'Silversprings', 'CA', '78493', '125453882', '08');
+Insert into Players values('Oliver', 'Hart', 'G', '2885 1st street','Silversprings', 'CA', '78493', '125453882', '08');
+
+
+select * from seasons;
+
+Select * from Players;
+Select * from Teams;
+select * from players
+where Teamcode = '01';
+
+select TNam, count(Teamcode) as 'Players'
+from teams
+join players
+on teams.Teamconde = players.Teamcode
+group by Tnam;
+
+select Pcity, count(Fname)
+from players
+group by Pcity;
+
+select Lname, Fname,  TNam
+from teams
+join players
+on teams.Teamconde = players.Teamcode
+group by Fname
+order by Lname;
+
+Create table Seasons 
+(
+Season Int,
+PlayDate date,
+HomeTeam char(5),
+HomeTeamScore int,
+AwayTeam Char(5),
+AwayTeamScore int
+);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Packe', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Hacke', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Packe', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Snack', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Packe', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Crack', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Packe', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Attac', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Packe', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Shack', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Flack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Packe', 0, 'Macke', 0);
+
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Hacke', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Snack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Crack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Attac', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Shack', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Packe', 0);
+Insert into Seasons Values (2016, '2016-01-25', 'Flack', 0, 'Macke', 0);
+
+
+Create table PastSeasons as
+(Select * from Seasons); 
+
+Update Seasons
+set Season = 2017;
+
+select * into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\CSeasons_OutFile_test.txt'
+fields terminated by ',' 
+from seasons;
+
+Load data infile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\CSeasons_OutFile_test.txt' into table pastseasons
+fields terminated by ',';
+
+
+Select * from pastseasons;
+
+
+
+
+select * from Seasons;
+
+use baseball;
+
+
+create table NextSeason as select * from seasons where 1 =2;
+
+insert into nextseason
+select * from Seasons;
+
+#2.	Change the structure of “NextSeason” by adding the following field:
+# a.	Innings (Integer)
+
+Alter table nextseason add column innings int;
+
+# 3.	Change the structure of “PastSeasons” by adding the following field:
+# a.	Innings (Integer)
+
+Alter table pastseasons add column innings int;
+# 4.	Delete the table “Season”.
+drop table seasons;
+# 5.	Rename the table “NextSeason” to “Season”.
+alter table nextseason rename to Seasons;
+# 6.	Create an index on the table “Teams”, indexing on “TeamCode”.
+alter table Teams add index index_Teamcode(Teamconde);
+# 7.	Create an index on the table “Players”, indexing on “Team”.
+alter table Players add index index_Teamcode (Teamcode);
+# 8.	Based on the indexes, create a report or display of each team and the associated players on each team.
+
+#Create view index_view as
+select players.Teamcode, concat(Players.Fname) as 'First Name', Phone
+from Players
+Join Teams 
+where Players.Teamcode = Teams.Teamconde;
+
+
+
+
+
+
+
+# Week 5 Assig. 
+# Advanced Database
+
+# 1.	Create a view of the database showing the Team Name (TName) and  
+#    the Players last name (LastName) for all Players in the system.
+Create or replace view View_AllPlayers as
+select Lname, TNam
+from Players
+join teams
+where teams.Teamconde = Players.Teamcode;
+
+
+Select * from view_allplayers;
+
+# 2.	Create a view of the database showing the current schedule. The view should show 
+#    the HomeTeam name (TName) and the AwayTeam name (TName) and the PlayDate. The listing should be in chronological order.
+
+Create or replace view view_MatchUP as
+select PlayDate, HomeTeam, AwayTeam
+from Seasons;
+
+Select * from view_matchup;
+
+
+# 3.	Set up a backup procedure and back up your “Baseball” database.
+
+Select * from pastseasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv'
+fields terminated by ',' ;
+Select * from players into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Players.csv'
+fields terminated by ',' ;
+Select * from seasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Seasons.csv'
+fields terminated by ',' ;
+Select * from teams into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Teams.csv'
+fields terminated by ',' ;
+
+
+
+
+
+# 4.	Establish a restore procedure and restore your “Baseball” database from the backup.
+
+
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv' into table pastseasons
+fields terminated by ',' ;
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Players.csv' into table players
+fields terminated by ',' ;
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Seasons.csv' into table seasons
+fields terminated by ',' ;
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Teams.csv' into table teams
+fields terminated by ',' ;
+
+
+
+
+# Week 6 ILAB
+# 1.	Create a Store Procedure to update the HomeTeamScore and 
+# the AwayTeamScore for the current record every time the procedure is called.
+Delimiter $$
+Create procedure Update_Scores
+ (IN Awayscore int, IN Homescore int, IN HomeT char(5), AwayT char(5))
+ begin
+ Update Seasons 
+ set
+AwayTeamScore = Awayscore,
+HomeTeamScore =Homescore
+where AwayTeam = AwayT && HomeTeam = HomeT;
+ end$$
+ Delimiter ;
+
+# 2.	Write a program to step through the “Season” table 
+# displaying each record and allowing the user to enter the final score for 
+# the game. Call your stored procedure from within the program updating the “Season” table.
+Delimiter $$
+Create procedure Update_Scores_Final
+ (seasn int ,IN Awayscore int, IN Homescore int, IN HomeT char(5), AwayT char(5))
+ begin
+ Update Seasons 
+ set
+AwayTeamScore = Awayscore,
+HomeTeamScore =Homescore
+where AwayTeam = AwayT && HomeTeam = HomeT;
+ end$$
+ Delimiter ;
+
+Call Update_Scores_Final (2016, 1, 3, 'Snack', 'Crack');
+# 3.	Set up an event to back up your database at midnight every Friday night.
+	
+Delimiter $$
+Create Event Backup_Midnight
+On schedule
+Every 24 hour
+Do 
+Begin
+	Select * from pastseasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv'
+fields terminated by ',' ;
+Select * from players into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Players.csv'
+fields terminated by ',' ;
+Select * from seasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Seasons.csv'
+fields terminated by ',' ;
+Select * from teams into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Teams.csv'
+fields terminated by ',' ;
+End $$
+Delimiter ; 
+
+# Week 7 Ilab
+# 1.	Using a programming language, create two reports based on the Baseball database.
+# a.	Create a report to print the upcoming schedule.
+# b.	Create a report to show the team rosters.
+
+
+
+
+
+
+
+
+
+

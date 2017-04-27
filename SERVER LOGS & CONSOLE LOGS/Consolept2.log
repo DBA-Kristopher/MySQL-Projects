@@ -1,0 +1,10 @@
+mysql> show grants for bob@localhost;
++------------------------------------------------------------------------------------+
+| Grants for bob@localhost                                                           |
++------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'bob'@'localhost'                                            |
+| GRANT SELECT, INSERT, UPDATE, CREATE, DROP ON `devrydbm438`.* TO 'bob'@'localhost' |
++------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> exit

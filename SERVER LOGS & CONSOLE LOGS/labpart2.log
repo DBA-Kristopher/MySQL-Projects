@@ -1,0 +1,23 @@
+mysql> show variable like '%buffer%size';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'variable like '%buffer%size'' at line 1
+mysql> show variables like '%buffer%size';
++-------------------------------+-----------+
+| Variable_name                 | Value     |
++-------------------------------+-----------+
+| bulk_insert_buffer_size       | 8388608   |
+| innodb_buffer_pool_chunk_size | 8388608   |
+| innodb_buffer_pool_size       | 8388608   |
+| innodb_change_buffer_max_size | 25        |
+| innodb_log_buffer_size        | 1048576   |
+| innodb_sort_buffer_size       | 1048576   |
+| join_buffer_size              | 262144    |
+| key_buffer_size               | 8388608   |
+| myisam_sort_buffer_size       | 377487360 |
+| preload_buffer_size           | 32768     |
+| read_buffer_size              | 126976    |
+| read_rnd_buffer_size          | 262144    |
+| sort_buffer_size              | 128000    |
++-------------------------------+-----------+
+13 rows in set (0.00 sec)
+
+mysql> exit

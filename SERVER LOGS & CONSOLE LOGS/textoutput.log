@@ -1,0 +1,577 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| 5 ilab             |
+| 5 projectweek      |
+| 6                  |
+| 6 ilab             |
+| baseball           |
+| baseball2016       |
+| cis337             |
+| devrydbm438        |
+| mysql              |
+| mytest             |
+| new                |
+| performance_schema |
+| sys                |
++--------------------+
+14 rows in set (0.12 sec)
+
+mysql> use devrydbm438;
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_devrydbm438 |
++-----------------------+
+| g_dept                |
+| s_dept                |
+| s_emp                 |
++-----------------------+
+3 rows in set (0.01 sec)
+
+mysql> drop table g_dept;
+Query OK, 0 rows affected (0.33 sec)
+
+mysql> dropt table s_dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dropt table s_dept' at line 1
+mysql> dropt table s_dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dropt table s_dept' at line 1
+mysql> drop table s_dept;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> drop table s_emp;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source DBM438_LeeBooks.sql;
+ERROR: 
+Failed to open file 'DBM438_LeeBooks.sql', error: 2
+mysql> source C:\Users\James Flond\Downloads\DBM438_LeeBooks.sql;
+ERROR: 
+Unknown command '\U'.
+ERROR: 
+Unknown command '\J'.
+ERROR: 
+Unknown command '\D'.
+ERROR: 
+Unknown command '\D'.
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.26 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected (0.18 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 0 rows affected (0.17 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.08 sec)
+
+Query OK, 0 rows affected (0.57 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.08 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 0 rows affected (0.89 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.19 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 0 rows affected (0.31 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.10 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected (0.17 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 0 rows affected (0.17 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_devrydbm438 |
++-----------------------+
+| author                |
+| book_author           |
+| book_customer         |
+| book_order            |
+| books                 |
+| order_items           |
+| promotion             |
+| publisher             |
++-----------------------+
+8 rows in set (0.00 sec)
+
+mysql> explain extended
+    -> ;
+ERROR 1146 (42S02): Table 'devrydbm438.extended' doesn't exist
+mysql> show columns from book_customer;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| CustomerID | int(4)      | NO   | PRI | NULL    |       |
+| LastName   | varchar(10) | YES  |     | NULL    |       |
+| FirstName  | varchar(10) | YES  |     | NULL    |       |
+| Address    | varchar(20) | YES  |     | NULL    |       |
+| City       | varchar(20) | YES  |     | NULL    |       |
+| State      | varchar(2)  | YES  |     | NULL    |       |
+| Zip        | varchar(5)  | YES  |     | NULL    |       |
+| Referred   | int(4)      | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> explain extended 
+    -> select FirstName, LastName, city from book_customer where zip = '32106';
++----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table         | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | book_customer | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   20 |    10.00 | Using where |
++----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 2 warnings (0.05 sec)
+
+mysql> select FirstName, LastName, city from book_customer where zip = '32106';
+Empty set (0.01 sec)
+
+mysql> select Firstname, lastname, city from book_customer where zip = '32106';
+Empty set (0.00 sec)
+
+mysql> explain extedned 
+    -> select firstname, lastname city from book_customer where zip = '32106';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select firstname, lastname city from book_customer where zip = '32106'' at line 2
+mysql> show columns from book_customer;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| CustomerID | int(4)      | NO   | PRI | NULL    |       |
+| LastName   | varchar(10) | YES  |     | NULL    |       |
+| FirstName  | varchar(10) | YES  |     | NULL    |       |
+| Address    | varchar(20) | YES  |     | NULL    |       |
+| City       | varchar(20) | YES  |     | NULL    |       |
+| State      | varchar(2)  | YES  |     | NULL    |       |
+| Zip        | varchar(5)  | YES  |     | NULL    |       |
+| Referred   | int(4)      | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> explain extended
+    -> select firstname, lastname, city from book_customer where zip = '32106';
++----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+| id | select_type | table         | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
++----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+|  1 | SIMPLE      | book_customer | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   20 |    10.00 | Using where |
++----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------------+
+1 row in set, 2 warnings (0.00 sec)
+
+mysql> select firstname, lastname, cit from book_customer where zip = '32106';
+ERROR 1054 (42S22): Unknown column 'cit' in 'field list'
+mysql> select firstname, lastname, city from book_customer where zip = '32106';
+Empty set (0.00 sec)
+
+mysql> show columns from author;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| AuthorID | int(4)      | NO   | PRI | NULL    |       |
+| Lname    | varchar(10) | YES  |     | NULL    |       |
+| Fname    | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> show columns from book_author;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| BOOKID   | int(15) | NO   | PRI | NULL    |       |
+| AUTHORid | int(4)  | NO   | PRI | NULL    |       |
++----------+---------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> show colums from books;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'colums from books' at line 1
+mysql> show tables;
++-----------------------+
+| Tables_in_devrydbm438 |
++-----------------------+
+| author                |
+| book_author           |
+| book_customer         |
+| book_order            |
+| books                 |
+| order_items           |
+| promotion             |
+| publisher             |
++-----------------------+
+8 rows in set (0.00 sec)
+
+mysql> show columns from books;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| BookID   | int(15)      | NO   | PRI | NULL    |       |
+| ISBN     | varchar(10)  | YES  |     | NULL    |       |
+| Title    | varchar(30)  | YES  |     | NULL    |       |
+| PubDate  | date         | YES  |     | NULL    |       |
+| PubID    | int(2)       | YES  | MUL | NULL    |       |
+| Cost     | decimal(5,2) | YES  |     | NULL    |       |
+| Retail   | decimal(5,2) | YES  |     | NULL    |       |
+| Category | varchar(12)  | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select Fname, Lname, Title from author
+    -> join book_author
+    -> On book_author.AUTHORid = author.AuthorID
+    -> join books
+    -> On books.BookID = book_author.BOOKID;
++---------+----------+--------------------------------+
+| Fname   | Lname    | Title                          |
++---------+----------+--------------------------------+
+| LISA    | PORTER   | BODYBUILD IN 10 MINUTES A DAY  |
+| TINA    | PETERSON | DATABASE IMPLEMENTATION        |
+| WILLIAM | WHITE    | HANDCRANKED COMPUTERS          |
+| WILLIAM | WHITE    | HOW TO MANAGE THE MANAGER      |
+| LISA    | WHITE    | HANDCRANKED COMPUTERS          |
+| LISA    | WHITE    | SHORTEST POEMS                 |
+| ROBERT  | ROBINSON | PAINLESS CHILD-REARING         |
+| ROBERT  | ROBINSON | BIG BEAR AND LITTLE DOVE       |
+| OSCAR   | FIELDS   | PAINLESS CHILD-REARING         |
+| SAM     | SMITH    | BODYBUILD IN 10 MINUTES A DAY  |
+| SAM     | SMITH    | THE WOK WAY TO COOK            |
+| SAM     | SMITH    | HOW TO GET FASTER PIZZA        |
+| TAMARA  | KZOCHSKY | BUILDING A CAR WITH TOOTHPICKS |
+| JANICE  | JONES    | REVENGE OF MICKEY              |
+| JANICE  | JONES    | E-BUSINESS THE EASY WAY        |
+| JAMES   | AUSTIN   | DATABASE IMPLEMENTATION        |
+| JAMES   | AUSTIN   | HOLY GRAIL OF ORACLE           |
+| JUAN    | ADAMS    | DATABASE IMPLEMENTATION        |
+| JACK    | BAKER    | COOKING WITH MUSHROOMS         |
+| JACK    | BAKER    | PAINLESS CHILD-REARING         |
++---------+----------+--------------------------------+
+20 rows in set (0.05 sec)
+
+mysql> select Fname, Lname, Title from author
+    -> join book_author
+    -> On book_author.AUTHORid = author.AuthorID
+    -> join books
+    -> On books.BookID = book_author.BOOKID;
++---------+----------+--------------------------------+
+| Fname   | Lname    | Title                          |
++---------+----------+--------------------------------+
+| LISA    | PORTER   | BODYBUILD IN 10 MINUTES A DAY  |
+| TINA    | PETERSON | DATABASE IMPLEMENTATION        |
+| WILLIAM | WHITE    | HANDCRANKED COMPUTERS          |
+| WILLIAM | WHITE    | HOW TO MANAGE THE MANAGER      |
+| LISA    | WHITE    | HANDCRANKED COMPUTERS          |
+| LISA    | WHITE    | SHORTEST POEMS                 |
+| ROBERT  | ROBINSON | PAINLESS CHILD-REARING         |
+| ROBERT  | ROBINSON | BIG BEAR AND LITTLE DOVE       |
+| OSCAR   | FIELDS   | PAINLESS CHILD-REARING         |
+| SAM     | SMITH    | BODYBUILD IN 10 MINUTES A DAY  |
+| SAM     | SMITH    | THE WOK WAY TO COOK            |
+| SAM     | SMITH    | HOW TO GET FASTER PIZZA        |
+| TAMARA  | KZOCHSKY | BUILDING A CAR WITH TOOTHPICKS |
+| JANICE  | JONES    | REVENGE OF MICKEY              |
+| JANICE  | JONES    | E-BUSINESS THE EASY WAY        |
+| JAMES   | AUSTIN   | DATABASE IMPLEMENTATION        |
+| JAMES   | AUSTIN   | HOLY GRAIL OF ORACLE           |
+| JUAN    | ADAMS    | DATABASE IMPLEMENTATION        |
+| JACK    | BAKER    | COOKING WITH MUSHROOMS         |
+| JACK    | BAKER    | PAINLESS CHILD-REARING         |
++---------+----------+--------------------------------+
+20 rows in set (0.00 sec)
+
+mysql> select Fname, Lname, Title from author
+    -> join book_author
+    -> On book_author.AUTHORid = author.AuthorID
+    -> join books
+    -> On books.BookID = book_author.BOOKID;
++---------+----------+--------------------------------+
+| Fname   | Lname    | Title                          |
++---------+----------+--------------------------------+
+| LISA    | PORTER   | BODYBUILD IN 10 MINUTES A DAY  |
+| TINA    | PETERSON | DATABASE IMPLEMENTATION        |
+| WILLIAM | WHITE    | HANDCRANKED COMPUTERS          |
+| WILLIAM | WHITE    | HOW TO MANAGE THE MANAGER      |
+| LISA    | WHITE    | HANDCRANKED COMPUTERS          |
+| LISA    | WHITE    | SHORTEST POEMS                 |
+| ROBERT  | ROBINSON | PAINLESS CHILD-REARING         |
+| ROBERT  | ROBINSON | BIG BEAR AND LITTLE DOVE       |
+| OSCAR   | FIELDS   | PAINLESS CHILD-REARING         |
+| SAM     | SMITH    | BODYBUILD IN 10 MINUTES A DAY  |
+| SAM     | SMITH    | THE WOK WAY TO COOK            |
+| SAM     | SMITH    | HOW TO GET FASTER PIZZA        |
+| TAMARA  | KZOCHSKY | BUILDING A CAR WITH TOOTHPICKS |
+| JANICE  | JONES    | REVENGE OF MICKEY              |
+| JANICE  | JONES    | E-BUSINESS THE EASY WAY        |
+| JAMES   | AUSTIN   | DATABASE IMPLEMENTATION        |
+| JAMES   | AUSTIN   | HOLY GRAIL OF ORACLE           |
+| JUAN    | ADAMS    | DATABASE IMPLEMENTATION        |
+| JACK    | BAKER    | COOKING WITH MUSHROOMS         |
+| JACK    | BAKER    | PAINLESS CHILD-REARING         |
++---------+----------+--------------------------------+
+20 rows in set (0.00 sec)
+
+mysql> notee

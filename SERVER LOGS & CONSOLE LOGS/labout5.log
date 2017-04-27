@@ -1,0 +1,5 @@
+mysql> source C:\Users\James Flond\Documents\Devry Classes\DBM 438\Week 7\dbackup.sql
+mysql> select * from emp;
+ERROR 1046 (3D000): No database selected
+mysql> use devrydbm438;
+Database changed

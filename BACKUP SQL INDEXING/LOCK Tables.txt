@@ -1,0 +1,359 @@
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+--
+-- Host: localhost    Database: devrydbm438
+-- ------------------------------------------------------
+-- Server version	5.7.10-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `author`
+--
+
+DROP TABLE IF EXISTS `author`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `author` (
+  `AuthorID` int(4) NOT NULL,
+  `Lname` varchar(10) DEFAULT NULL,
+  `Fname` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`AuthorID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `author`
+--
+
+LOCK TABLES `author` WRITE;
+/*!40000 ALTER TABLE `author` DISABLE KEYS */;
+INSERT INTO `author` VALUES (1100,'PORTER','LISA'),(1105,'PETERSON','TINA'),(2100,'WHITE','WILLIAM'),(2105,'WHITE','LISA'),(2110,'WILKINSON','ANTHONY'),(3110,'ROBINSON','ROBERT'),(4110,'FIELDS','OSCAR'),(5100,'SMITH','SAM'),(5110,'KZOCHSKY','TAMARA'),(6100,'JONES','JANICE'),(7100,'AUSTIN','JAMES'),(7105,'ADAMS','JUAN'),(8100,'MARTINEZ','SHEILA'),(9100,'BAKER','JACK');
+/*!40000 ALTER TABLE `author` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bonus`
+--
+
+DROP TABLE IF EXISTS `bonus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bonus` (
+  `ENAME` varchar(10) DEFAULT NULL,
+  `JOB` varchar(9) DEFAULT NULL,
+  `SAL` int(11) DEFAULT NULL,
+  `COMM` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bonus`
+--
+
+LOCK TABLES `bonus` WRITE;
+/*!40000 ALTER TABLE `bonus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bonus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_author`
+--
+
+DROP TABLE IF EXISTS `book_author`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_author` (
+  `BOOKID` int(15) NOT NULL,
+  `AUTHORid` int(4) NOT NULL,
+  PRIMARY KEY (`BOOKID`,`AUTHORid`),
+  KEY `AUTHORid` (`AUTHORid`),
+  CONSTRAINT `book_author_ibfk_1` FOREIGN KEY (`BOOKID`) REFERENCES `books` (`BookID`),
+  CONSTRAINT `book_author_ibfk_2` FOREIGN KEY (`AUTHORid`) REFERENCES `author` (`AuthorID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_author`
+--
+
+LOCK TABLES `book_author` WRITE;
+/*!40000 ALTER TABLE `book_author` DISABLE KEYS */;
+INSERT INTO `book_author` VALUES (5001,1100),(5004,1105),(5007,2100),(5013,2100),(5007,2105),(5014,2105),(5009,3110),(5011,3110),(5009,4110),(5001,5100),(5010,5100),(5012,5100),(5003,5110),(5002,6100),(5008,6100),(5004,7100),(5006,7100),(5004,7105),(5005,9100),(5009,9100);
+/*!40000 ALTER TABLE `book_author` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_customer`
+--
+
+DROP TABLE IF EXISTS `book_customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_customer` (
+  `CustomerID` int(4) NOT NULL,
+  `LastName` varchar(10) DEFAULT NULL,
+  `FirstName` varchar(10) DEFAULT NULL,
+  `Address` varchar(20) DEFAULT NULL,
+  `City` varchar(20) DEFAULT NULL,
+  `State` varchar(2) DEFAULT NULL,
+  `Zip` varchar(5) DEFAULT NULL,
+  `Referred` int(4) DEFAULT NULL,
+  PRIMARY KEY (`CustomerID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_customer`
+--
+
+LOCK TABLES `book_customer` WRITE;
+/*!40000 ALTER TABLE `book_customer` DISABLE KEYS */;
+INSERT INTO `book_customer` VALUES (1001,'MORALES','BONITA','P.O. BOX 651','EASTPOINT','FL','32328',NULL),(1002,'THOMPSON','RYAN','P.O. BOX 9835','SANTA MONICA','CA','90404',NULL),(1003,'SMITH','LEILA','P.O. BOX 66','TALLAHASSEE','FL','32306',NULL),(1004,'PIERSON','THOMAS','69821 SOUTH AVENUE','BOISE','ID','83707',NULL),(1005,'GIRARD','CINDY','P.O. BOX 851','SEATTLE','WA','98115',NULL),(1006,'CRUZ','MESHIA','82 DIRT ROAD','ALBANY','NY','12211',NULL),(1007,'GIANA','TAMMY','9153 MAIN STREET','AUSTIN','TX','78710',1003),(1008,'JONES','KENNETH','P.O. BOX 137','CHEYENNE','WY','82003',NULL),(1009,'PEREZ','JORGE','P.O. BOX 8564','BURBANK','CA','91510',1003),(1010,'LUCAS','JAKE','114 EAST SAVANNAH','ATLANTA','GA','30314',NULL),(1011,'MCGOVERN','REESE','P.O. BOX 18','CHICAGO','IL','60606',NULL),(1012,'MCKENZIE','WILLIAM','P.O. BOX 971','BOSTON','MA','02110',NULL),(1013,'NGUYEN','NICHOLAS','357 WHITE EAGLE AVE.','CLERMONT','FL','34711',1006),(1014,'LEE','JASMINE','P.O. BOX 2947','CODY','WY','82414',NULL),(1015,'SCHELL','STEVE','P.O. BOX 677','MIAMI','FL','33111',NULL),(1016,'DAUM','MICHELL','9851231 LONG ROAD','BURBANK','CA','91508',1010),(1017,'NELSON','BECCA','P.O. BOX 563','KALMAZOO','MI','49006',NULL),(1018,'MONTIASA','GREG','1008 GRAND AVENUE','MACON','GA','31206',NULL),(1019,'SMITH','JENNIFER','P.O. BOX 1151','MORRISTOWN','NJ','07962',1003),(1020,'FALAH','KENNETH','P.O. BOX 335','TRENTON','NJ','08607',NULL);
+/*!40000 ALTER TABLE `book_customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_order`
+--
+
+DROP TABLE IF EXISTS `book_order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_order` (
+  `OrderID` int(4) NOT NULL,
+  `CustomerID` int(4) DEFAULT NULL,
+  `OrderDate` date DEFAULT NULL,
+  `ShipDate` date DEFAULT NULL,
+  `ShipStreet` varchar(20) DEFAULT NULL,
+  `ShipCity` varchar(20) DEFAULT NULL,
+  `ShipState` varchar(2) DEFAULT NULL,
+  `ShipZip` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`OrderID`),
+  KEY `CustomerID` (`CustomerID`),
+  CONSTRAINT `book_order_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `book_customer` (`CustomerID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_order`
+--
+
+LOCK TABLES `book_order` WRITE;
+/*!40000 ALTER TABLE `book_order` DISABLE KEYS */;
+INSERT INTO `book_order` VALUES (1000,1005,'2014-03-09','2014-04-02','1201 ORANGE AVE','SEATTLE','WA','98114'),(1001,1010,'2014-03-09','2014-04-01','114 EAST SAVANNAH','ATLANTA','GA','30314'),(1002,1011,'2014-03-09','2014-04-01','58 TILA CIRCLE','CHICAGO','IL','60905'),(1003,1001,'2014-04-01','2014-04-01','958 MAGNOLIA LANE','EASTPOINT','FL','32328'),(1004,1020,'2014-04-01','2014-04-09','561 ROUNDABOUT WAY','TRENTON','NJ','08601'),(1005,1018,'2014-04-01','2014-04-02','1008 GRAND AVENUE','MACON','GA','31206'),(1006,1003,'2014-04-01','2014-04-02','558A CAPITOL HWY.','TALLAHASSEE','FL','32307'),(1007,1007,'2014-04-02','2014-04-04','9153 MAIN STREET','AUSTIN','TX','78710'),(1008,1004,'2014-04-02','2014-04-03','69821 SOUTH AVENUE','BOISE','ID','83707'),(1009,1005,'2014-04-03','2014-04-09','9 LIGHTENING RD.','SEATTLE','WA','98110'),(1010,1019,'2014-04-03','2014-04-04','384 WRONG WAY HOME','MORRISTOWN','NJ','07960'),(1011,1010,'2014-04-03','2014-04-09','102 WEST LAFAYETTE','ATLANTA','GA','30311'),(1012,1017,'2014-04-09',NULL,'1295 WINDY AVENUE','KALMAZOO','MI','49002'),(1013,1014,'2014-04-03','2014-04-04','7618 MOUNTAIN RD.','CODY','WY','82414'),(1014,1007,'2013-12-09','2014-01-10','9153 MAIN STREET','AUSTIN','TX','78710'),(1015,1020,'2014-04-04',NULL,'557 GLITTER ST.','TRENTON','NJ','08606'),(1016,1003,'2014-04-04',NULL,'9901 SEMINOLE WAY','TALLAHASSEE','FL','32307'),(1017,1015,'2014-10-09','2014-10-10','887 HOT ASPHALT ST','MIAMI','FL','33112'),(1018,1001,'2014-09-05',NULL,'95812 HIGHWAY 98','EASTPOINT','FL','32328'),(1019,1018,'2014-04-09',NULL,'1008 GRAND AVENUE','MACON','GA','31206'),(1020,1008,'2014-05-09',NULL,'195 JAMISON LANE','CHEYENNE','WY','82003');
+/*!40000 ALTER TABLE `book_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `books`
+--
+
+DROP TABLE IF EXISTS `books`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `books` (
+  `BookID` int(15) NOT NULL,
+  `ISBN` varchar(10) DEFAULT NULL,
+  `Title` varchar(30) DEFAULT NULL,
+  `PubDate` date DEFAULT NULL,
+  `PubID` int(2) DEFAULT NULL,
+  `Cost` decimal(5,2) DEFAULT NULL,
+  `Retail` decimal(5,2) DEFAULT NULL,
+  `Category` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`BookID`),
+  KEY `PubID` (`PubID`),
+  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`PubID`) REFERENCES `publisher` (`PubID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `books`
+--
+
+LOCK TABLES `books` WRITE;
+/*!40000 ALTER TABLE `books` DISABLE KEYS */;
+INSERT INTO `books` VALUES (5001,'1059831198','BODYBUILD IN 10 MINUTES A DAY','2001-01-21',4,18.75,30.95,'FITNESS'),(5002,'0401140733','REVENGE OF MICKEY','2001-12-12',1,14.20,22.00,'FAMILY LIFE'),(5003,'4981341710','BUILDING A CAR WITH TOOTHPICKS','2002-03-18',2,37.80,59.95,'CHILDREN'),(5004,'8843172113','DATABASE IMPLEMENTATION','2004-04-06',3,31.40,55.95,'COMPUTER'),(5005,'3437212490','COOKING WITH MUSHROOMS','2000-01-02',4,12.50,19.95,'COOKING'),(5006,'3957136468','HOLY GRAIL OF ORACLE','2001-12-31',3,47.25,75.95,'COMPUTER'),(5007,'1915762492','HANDCRANKED COMPUTERS','2001-01-01',3,21.80,25.00,'COMPUTER'),(5008,'9959789321','E-BUSINESS THE EASY WAY','2002-02-03',2,37.90,54.50,'COMPUTER'),(5009,'2491748320','PAINLESS CHILD-REARING','2000-07-17',5,48.00,89.95,'FAMILY LIFE'),(5010,'0299282519','THE WOK WAY TO COOK','2000-11-09',4,19.00,28.75,'COOKING'),(5011,'8117949391','BIG BEAR AND LITTLE DOVE','2001-11-01',5,5.32,8.95,'CHILDREN'),(5012,'0132149871','HOW TO GET FASTER PIZZA','2002-02-11',4,17.85,29.95,'SELF HELP'),(5013,'9247381001','HOW TO MANAGE THE MANAGER','1999-05-01',1,15.40,31.95,'BUSINESS'),(5014,'2147428890','SHORTEST POEMS','2001-05-01',5,21.85,39.95,'LITERATURE');
+/*!40000 ALTER TABLE `books` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dept`
+--
+
+DROP TABLE IF EXISTS `dept`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dept` (
+  `DEPTNO` int(2) NOT NULL,
+  `DNAME` varchar(14) DEFAULT NULL,
+  `LOC` varchar(13) DEFAULT NULL,
+  PRIMARY KEY (`DEPTNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dept`
+--
+
+LOCK TABLES `dept` WRITE;
+/*!40000 ALTER TABLE `dept` DISABLE KEYS */;
+INSERT INTO `dept` VALUES (10,'ACCOUNTING','NEW YORK'),(20,'RESEARCH','DALLAS'),(30,'SALES','CHICAGO'),(40,'OPERATIONS','BOSTON');
+/*!40000 ALTER TABLE `dept` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emp`
+--
+
+DROP TABLE IF EXISTS `emp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emp` (
+  `EMPNO` int(4) NOT NULL,
+  `ENAME` varchar(10) DEFAULT NULL,
+  `JOB` varchar(9) DEFAULT NULL,
+  `MGR` int(4) DEFAULT NULL,
+  `HIREDATE` date DEFAULT NULL,
+  `SAL` decimal(7,2) DEFAULT NULL,
+  `COMM` decimal(7,2) DEFAULT NULL,
+  `DEPTNO` int(2) DEFAULT NULL,
+  PRIMARY KEY (`EMPNO`),
+  KEY `DEPTNO` (`DEPTNO`),
+  CONSTRAINT `emp_ibfk_1` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emp`
+--
+
+LOCK TABLES `emp` WRITE;
+/*!40000 ALTER TABLE `emp` DISABLE KEYS */;
+INSERT INTO `emp` VALUES (7369,'SMITH','CLERK',7902,'2004-12-17',800.00,NULL,20),(7499,'ALLEN','SALESMAN',7698,'2004-02-20',1600.00,300.00,30),(7521,'WARD','SALESMAN',7698,'2004-02-22',1250.00,500.00,30),(7566,'JONES','MANAGER',7839,'2005-04-02',2975.00,NULL,20),(7654,'MARTIN','SALESMAN',7698,'2005-08-09',1250.00,1400.00,30),(7698,'BLAKE','MANAGER',7839,'2004-05-02',2850.00,NULL,30),(7782,'CLARK','MANAGER',7839,'2005-06-09',2450.00,NULL,10),(7788,'SCOTT','ANALYST',7566,'2003-07-07',3000.00,NULL,20),(7839,'KING','PRESIDENT',NULL,'2003-11-25',5000.00,NULL,10),(7844,'TURNER','SALESMAN',7698,'2005-09-02',1500.00,0.00,30),(7876,'ADAMS','CLERK',7788,'2003-07-03',1100.00,NULL,20),(7900,'JAMES','CLERK',7698,'2002-12-02',950.00,NULL,30),(7902,'FORD','ANALYST',7566,'2004-12-02',3000.00,NULL,20),(7934,'MILLER','CLERK',7782,'2005-01-23',1300.00,NULL,10);
+/*!40000 ALTER TABLE `emp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order_items`
+--
+
+DROP TABLE IF EXISTS `order_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_items` (
+  `ORDERID` int(4) NOT NULL,
+  `ITEMNUM` int(2) NOT NULL,
+  `BOOKID` int(15) NOT NULL,
+  `QUANTITY` int(3) DEFAULT NULL,
+  PRIMARY KEY (`ORDERID`,`BOOKID`),
+  KEY `BOOKID` (`BOOKID`),
+  CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`ORDERID`) REFERENCES `book_order` (`OrderID`),
+  CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`BOOKID`) REFERENCES `books` (`BookID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_items`
+--
+
+LOCK TABLES `order_items` WRITE;
+/*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
+INSERT INTO `order_items` VALUES (1000,1,5005,1),(1001,2,5009,1),(1001,1,5013,1),(1002,1,5004,2),(1003,2,5001,1),(1003,1,5004,1),(1003,3,5005,1),(1004,1,5009,2),(1005,1,5014,1),(1006,1,5008,1),(1007,4,5004,1),(1007,1,5006,3),(1007,2,5008,1),(1007,3,5011,1),(1008,1,5005,2),(1009,2,5002,1),(1009,1,5005,1),(1010,1,5004,4),(1011,1,5009,1),(1012,4,5002,1),(1012,2,5007,2),(1012,3,5009,1),(1012,1,5011,1),(1013,1,5004,1),(1014,1,5002,2),(1015,1,5005,1),(1016,1,5009,1),(1017,1,5011,2),(1018,2,5004,1),(1018,1,5005,1),(1019,1,5002,1),(1020,1,5005,1);
+/*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `promotion`
+--
+
+DROP TABLE IF EXISTS `promotion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `promotion` (
+  `PromotionID` int(3) NOT NULL,
+  `gift` varchar(15) DEFAULT NULL,
+  `minretail` decimal(5,2) DEFAULT NULL,
+  `maxretail` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`PromotionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `promotion`
+--
+
+LOCK TABLES `promotion` WRITE;
+/*!40000 ALTER TABLE `promotion` DISABLE KEYS */;
+INSERT INTO `promotion` VALUES (1,'BOOKMARKER',0.00,12.00),(2,'BOOK LABELS',12.01,25.00),(3,'BOOK COVER',25.01,56.00),(4,'FREE SHIPPING',56.01,999.99);
+/*!40000 ALTER TABLE `promotion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `publisher`
+--
+
+DROP TABLE IF EXISTS `publisher`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `publisher` (
+  `PubID` int(2) NOT NULL,
+  `PublisherName` varchar(23) DEFAULT NULL,
+  `ContactName` varchar(20) DEFAULT NULL,
+  `Phone` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`PubID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `publisher`
+--
+
+LOCK TABLES `publisher` WRITE;
+/*!40000 ALTER TABLE `publisher` DISABLE KEYS */;
+INSERT INTO `publisher` VALUES (1,'PRINTING IS US','TOMMIE SEYMOUR','800-714-8321'),(2,'PUBLISH OUR WAY','JANE TOMLIN','800-410-0010'),(3,'AMERICAN PUBLISHING','DAVID DAVIDSON','800-555-1211'),(4,'READING MATERIALS INC.','RENEE SMITH','800-555-9743'),(5,'REED-N-RITE','SEBASTIAN JONES','800-555-8284'),(6,'LITTLE HOUSE','DOUG COLLINS','800-515-2665');
+/*!40000 ALTER TABLE `publisher` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `salgrade`
+--
+
+DROP TABLE IF EXISTS `salgrade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `salgrade` (
+  `GRADE` int(11) DEFAULT NULL,
+  `LOSAL` int(11) DEFAULT NULL,
+  `HISAL` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `salgrade`
+--
+
+LOCK TABLES `salgrade` WRITE;
+/*!40000 ALTER TABLE `salgrade` DISABLE KEYS */;
+INSERT INTO `salgrade` VALUES (1,700,1200),(2,1201,1400),(3,1401,2000),(4,2001,3000),(5,3001,9999);
+/*!40000 ALTER TABLE `salgrade` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-10-16 12:09:19
