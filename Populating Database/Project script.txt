@@ -1,0 +1,233 @@
+
+
+drop table if exists Client;
+drop table if exists Sales;
+drop table if exists Billing;
+drop table if exists Credit;
+
+
+
+create table Client
+(
+Client_ID INT(6) primary key,
+Address VARCHAR (25),
+Phone VARCHAR (10),
+Email VARCHAR (30),
+Sales_Manager VARCHAR (25)
+);
+
+create table Sales
+
+(                                                   
+
+Month VARCHAR(3) primary key,
+Year INT,
+Total_Cost INT,
+Product_Sold INT,
+Net_ROI INT,
+Client_ID INT,
+foreign key (Client_ID) references Client (Client_ID)
+);
+
+create table Billing
+(
+Billing_ID INT(11) primary key,
+Service VARCHAR(50), 
+Qty INT,
+Cost_per_unit INT,
+Total_Cost INT,
+Card_ID INT,
+foreign key (Card_ID) references Credit (Card_ID)
+);
+
+create table Credit
+(
+Card_ID INT(6) primary key,
+Fname VARCHAR(30),
+Lname VARCHAR(30),
+Phone INT,
+Email VARCHAR(30),
+CSC_NUM INT,
+Exp_Date INT,
+Card_NUM INT,
+Client_ID INT,
+foreign key (Client_ID) references Client (Client_ID)
+);
+
+Insert Into Client
+Values('512545', '4521 Happy lane',' 152545254', 'Happyperson@email,com', 'Tom Smith' );
+Insert Into Client
+Values('719545', '8452 John lane','745145254', 'Tacoperson@email,com', 'Adam West' );
+Insert Into Client
+Values('965145', '1234 Wall Street',' 152545254', '2016ISMINE@email,com', 'Donald Trump' );
+Insert Into Client
+Values('584251', '9111 Hope Street','8008008', 'Secrets@email,com', 'Hillary Clinton' );
+Insert Into Client
+Values('486215', '8854 Future lane','65815451', 'NextNASA@email,com', 'Elon Musk' );
+
+
+
+Insert Into Sales
+Values('Jan', 2012, 85123, 12, 65412, 486215);
+Insert Into Sales
+Values('Dec', 2014, 985451, 21, 415365, 584251);
+Insert Into Sales
+Values('Feb', 2013, 91123, 15, 974512, 965145);
+Insert Into Sales
+Values('Oct', 2016, 7541521, 18, 548121, 719545);
+Insert Into Sales
+Values('Sep', 2015, 12323, 9, 25401, 512545);
+
+
+Insert Into credit
+Values(48516,'Sam', 'Pepper', 54864584, 'Youtube@email.com', 545, 1117, 454548151, 512545 );
+Insert Into credit
+Values(21516,'Seth', 'Green', 1244584, 'Family@email.com', 123, 9517, 987548133, 719545 );
+Insert Into credit
+Values(45458,'Will', 'Smith', 6564533, 'Movie@email.com', 485, 1547, 142548197, 965145 );
+Insert Into credit
+Values(33214,'Obama', 'Loves', 5486444, 'You@email.com', 545, 1117, 654548167, 584251 );
+Insert Into credit
+Values(88454,'Kim', 'Jong', 1186455, 'Forever@email.com', 975, 1117, 344548100, 486215 );
+
+Insert Into Billing
+Values(692, 'Print Ads', 3000, 20, 35000,48516 );
+Insert Into Billing
+Values(5454, 'Digital Media', 54541, 20, 146545,21516 );
+Insert Into Billing
+Values(0101, 'Promotional Code', 31, 20, 132654,45458 );
+Insert Into Billing
+Values(3465, 'Market forcast', 210, 20, 987546,33214 );
+Insert Into Billing
+Values(1542, 'Demo Survey', 451, 20, 584556,88454 );
+
+
+Select * from Client;
+Select * from Sales;
+Select * from Credit;
+Select * from Billing;
+
+
+select 
+order_id, 
+order_date, 
+Concat(customer_first_name, ' ', customer_last_name) as Customer,
+customer_state
+from customers 
+JOIN orders
+On customers.customer_id = orders.customer_id
+where 
+customer_state = 'OH'
+order by 
+order_date;
+
+
+
+select order_id, order_date, shipped_date
+from orders join customers
+using (customer_id)
+where customers.customer_last_name = 'Lacy'
+&& customers.customer_first_name = 'Karina';
+
+select customer_last_name, customer_city, order_date, shipped_date
+from customers, orders
+where customers.customer_id = orders.customer_id
+&& orders.shipped_date < '2013-01-01'
+&& orders.shipped_date > '2011-12-31';
+
+
+
+select Concat(customer_first_name, ' ', customer_last_name) as Customer, Concat(customer_city, ', ', customer_state) as Location,
+order_id, order_date
+from customers join orders
+Using(customer_id)
+where shipped_date is null;
+
+
+select Concat(customer_first_name, ' ', customer_last_name) as Customer, order_date, customer_zip 
+from customers join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+where title = 'Etcetera';
+
+
+
+Select distinct title, artist_name
+from items join artists
+using(artist_id);
+
+
+select title, unit_price
+from customers join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+where customer_first_name = 'Millerton' 
+OR customer_last_name = 'Millerton';
+
+
+select customer_last_name, order_id
+from customers join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+join artists
+using(artist_id)
+where artist_name Like '%Burt Ruggles%';
+
+select title, artist_name
+from items join artists
+using(artist_id)
+order by artist_name;
+
+
+
+
+select order_id, title, order_qty, unit_price, concat(order_qty * unit_price) as Subtotal
+from order_details join items
+Using(item_id)
+join artists 
+using(artist_id)
+where order_id = 693
+;
+
+
+
+select order_id, customer_last_name, title, order_qty 
+from customers join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+where order_qty >= 2;
+
+
+select order_id, order_date shipped_date, customer_last_name
+from customers join orders
+using(customer_id)
+where shipped_date is not null
+order by shipped_date DESC;
+
+
+select order_id ,order_date, concat(first_name, ' ', last_name) as Employee
+from orders join employees
+using(employee_id);
+
+
+select order_id ,order_date, concat(customer_first_name, ' ', customer_last_name) as Customer
+from customers join orders
+using(customer_id)
+join employees
+using(employee_id)
+where last_name = 'Hardy' && first_name = 'Thomas';
+
+
+

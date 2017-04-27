@@ -1,0 +1,95 @@
+
+set foreign_key_checks = 0;
+alter table customers  
+modify customer_id  INTEGER AUTO_INCREMENT;
+
+INSERT into customers(customer_first_name, customer_last_name, customer_address, customer_city, customer_state,customer_zip, customer_fax, customer_phone) values('Derek', 'Smith', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA');
+INSERT into customers(customer_first_name, customer_last_name, customer_address, customer_city, customer_state,customer_zip, customer_fax, customer_phone) values('Donald', 'Trump', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA');
+select * from customers;
+
+set foreign_key_checks =1;
+
+
+CREATE OR REPLACE VIEW CA_CUSTOMERS AS
+	SELECT * from customers
+	where customers.customer_state = 'CA';
+    
+select * from CA_CUSTOMERS;
+Update ca_customers 
+set customer_last_name ='Lacie'
+where customer_last_name = 'Lacy';
+select * from customers;
+
+CREATE OR REPLACE VIEW SHIPPING_TIME AS
+SELECT customer_first_name, customer_last_name, order_date, shipped_date, DATEDIFF( order_date, shipped_date) as 'DateDiff'
+from customers
+join orders
+using(customer_id)
+where customers.customer_state = 'CA';
+
+select * from shipping_time
+group by customer_first_name, customer_last_name, order_date, shipped_date
+order by datediff(order_date, shipped_date) desc;
+
+select * from shipping_time
+where datediff(order_date, shipped_date) > -10
+group by customer_first_name, customer_last_name, order_date, shipped_date;
+select * from shipping_time
+where datediff(order_date, shipped_date) < -30
+group by customer_first_name, customer_last_name, order_date, shipped_date;
+
+
+
+ 
+
+Create or replace view SalesData as 
+select order_id, item_id, (order_qty * unit_price) as 'ItemTotal', title, artist_id
+from order_details
+join items
+using(item_id)
+join artists
+using(artist_id)
+;
+
+select * from SalesData
+order by artist_id;
+
+select Sum(ItemTotal), artist_id
+from SalesData
+group by artist_id;
+Create or replace view SalesData as 
+select order_id, item_id, artist_name, (order_qty * unit_price) as 'ItemTotal', title, artist_id
+from order_details
+join items
+using(item_id)
+join artists
+using(artist_id)
+;
+
+select artist_name, Sum(ItemTotal)
+from salesdata
+group by artist_name;
+
+Create or replace view SalesData as
+select customer_id, (order_qty * unit_price) as 'Total'
+from orders
+join order_details
+using(order_id)
+join items
+using(item_id)
+;
+
+select customer_id, sum(total)
+from salesdata
+group by customer_id;
+
+select concat(customer_first_name, ' ', customer_last_name) as 'Customer', sum(total)
+from salesdata
+join customers
+using(customer_id)
+group by customer_id
+order by Sum(total) desc;
+
+
+ 
+ 

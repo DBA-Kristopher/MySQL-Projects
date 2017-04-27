@@ -1,0 +1,154 @@
+select order_id,count(item_id) as 'Total Items'
+from order_details
+Where order_id >= 600
+group by order_id;
+
+
+select order_id,count(item_id) as 'Total Items'
+from order_details
+Where order_id >= 600
+group by order_id
+Having count(item_id) > 1
+Order by count(item_id);
+
+
+select order_id, item_id, unit_price, concat(unit_price * order_qty) as 'ItemTotal' 
+from order_details
+join items
+using(item_id)
+where order_id >= 400 && order_id <= 700
+Order by order_id;
+
+
+select order_id , sum(unit_price * order_qty) as 'Cost'
+from order_details
+join items 
+using(item_id)
+group by order_id
+having SUM(unit_price * order_qty) > 40
+order by order_id;
+
+
+select order_id , sum(unit_price * order_qty) as 'Cost', concat(customer_first_name, ' ', customer_last_name) as 'customer', customer_city
+from customers
+join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+where customer_state = 'CA'
+group by order_id
+order by customer_city;
+
+select title, Sum(order_qty) as 'TotalSales'
+from order_details
+join items
+Using(item_id)
+group by item_id
+order by sum(order_qty);
+
+
+select concat(customer_first_name, ' ' , customer_last_name) as 'Customer' , sum(order_qty * unit_price) as 'Total'
+from customers
+join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+group by customer_id
+having sum(order_qty * unit_price) >= 50
+Order by sum(order_qty * unit_price);
+
+select item_id, artist_name from order_details
+join items
+using(item_id)
+join artists
+using(artist_id)
+where artist_name IN
+(select max(artist_name) from artists)
+group by artist_id
+;
+
+
+select artist_name, sum(order_qty * unit_price) as 'Total' 
+ from order_details
+join items
+using(item_id)
+join artists
+using(artist_id)
+group by artist_id
+;
+
+
+Update items
+
+set unit_price = unit_price * 1.1
+where title like '%Weary%';
+
+select unit_price, title
+from items
+where title like '%Weary%';
+
+
+select concat(customer_first_name, ' ' , customer_last_name) as 'Customer'
+from customers
+join orders 
+using(customer_id)
+where order_date IN
+(select order_date from orders
+where order_date is not null && shipped_date is null);
+
+
+select concat(customer_first_name, ' ', customer_last_name) as 'Customer', customer_state, sum(order_qty * unit_price) as 'Total' 
+ from customers
+ join orders
+ using(customer_id)
+ join order_details
+using(order_id)
+join items
+using(item_id)
+join artists
+using(artist_id)
+where customer_state = 'NY'
+group by customer_id;
+
+
+select title, artist_name 
+from orders
+join order_details
+using(order_id)
+join items 
+using(item_id)
+join artists
+using(artist_id)
+where order_date IN
+(select order_date from orders
+where order_date is null)
+group by item_id;
+
+
+select order_id , order_date, shipped_date, sum(order_qty * unit_price) as 'Total' 
+from customers
+join orders
+using(customer_id)
+join order_details
+using(order_id)
+join items
+using(item_id)
+where customer_first_name = 'Samuel' && customer_last_name = 'Jacobsen'
+group by order_id;
+
+
+
+select concat(last_name, ' ', first_name)  as 'Name', sum(order_qty * unit_price) as 'total'
+from employees
+join orders
+using(employee_id)
+join order_details
+using(order_id)
+join items 
+using(item_id)
+group by employee_id
+order by sum(order_qty * unit_price);

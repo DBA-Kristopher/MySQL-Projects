@@ -1,0 +1,286 @@
+
+drop table if exists 'Enrollment';
+drop table if exists 'Student';
+drop table if exists 'Zipcode';
+drop table if exists 'Instructor';
+drop table if exists 'Section';
+drop table if exists 'Course';
+
+create table Zipcode
+(
+Zip INT(11) primary key,
+City VARCHAR (25) NOT NULL,
+STATE VARCHAR (2) NOT NULL
+);
+
+create table Student
+
+(
+
+Student_ID INT (6) primary key,
+
+Salutation VARCHAR (5), 
+
+First_Name VARCHAR(25) NOT NULL,
+
+Last_Name VARCHAR (25)NOT NULL,
+
+Street_Address VARCHAR (50),
+
+Zip int, 
+
+foreign key (Zip) references Zipcode (zip),
+
+Phone VARCHAR(15) NOT NULL,
+
+Employer VARCHAR(50),
+
+Registration_Date DATE NOT NULL
+
+);
+
+create table Instructor
+(
+Instructor_ID INT(6) primary key,
+Salutation VARCHAR (5),
+First_Name VARCHAR (25) NOT NULL,
+Last_Name VARHCAR (25) NOT NULL,
+Street_Address VARCHAR (50),
+ Zip int NOT NULL, 
+
+foreign key (Zip) references Zipcode (zip),
+Phone VARCHAR(15) NOT NULL,
+Employer VARCHAR (50),
+Registraction_Date DATE NOT NULL
+);
+
+create table Course
+(
+Course_ID INT(6) primary key,
+Description VARCHAR (50) NOT NULL,
+Cost decimal(8,2) ,
+ Prerequisite_course INT(6)
+);
+
+create table Section
+(
+Section_ID INT(8) primary key,
+
+Course_Section_Num INT(6) NOT NULL,
+
+Start_Date_Time DATETIME NOT NULL,
+
+Location VARCHAR(10) ,
+
+Capacity INT(3),
+
+Instructor_ID INT(6) ,
+
+foreign key (Instructor_ID) references Instructor (Instructor_ID),
+
+Course_ID INT (6),
+
+foreign key (Course_ID) references Course (Course_ID)
+);
+create table Enrollment
+(
+Section_ID INT(8) primary key,
+
+foreign key (Section_ID) references Section (Section_ID),
+
+Student_ID INT(6) primary key,
+
+foreign key (Student_ID) references Student (Student_ID),
+
+Enroll_Date date NOT NULL,
+Final_Grade CHAR(1)
+);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(102,'Mr.','Fred','Crocitto','101-09 120th St.',718-555-5555,'Albert Hildegard Co.',1/22/2007,11419);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(103, 'Ms.','J.','Landry','7435 Boulevard East #45',201-555-5555, 'Albert Hildegard Co.',1/22/2007,7047);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(104,'Ms.','Laetia','Enison','144-61 87th Ave',718-555-5555,'Albert Hildegard Co.',1/22/2007,11435);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(105,'Mr.','Angel','Moskowitz','320 John St.',201-555-5555,'Alex. & Alexander',1/22/2007,7024);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(163,'Ms.','Nicole','Gillen','4301 N Ocean #103',904-555-5555,'Oil of America Corp.',2/2/2007,10025);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(223,'Mr.','Frank','Pace','13 Burlington Dr.',203-555-5555,'Board Utilities',2/8/2007,10025);
+
+Insert Into Student(StudentID, Salutation, First_Name, Last_Name, Street_Address, Phone, Employer, Registration_Date, Zip)
+
+Values(399,'Mr.','Jerry','Abdou','460 15th St. #4',718-555-5555,'Health Mgmt.Systems',2/23/2007,10025);
+
+
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(101,'Mr','Fernand','Hanks','100 East 87th',10015);
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(102,'Mr','Tom','Wojick','518 West 120th',10025);
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(103,'Ms','Nina','Schorin','210 West 101st',10025);
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(104,'Mr','Gary','Pertez','34 Sixth Ave',10035);
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(105,'Ms','Anita','Morris','34 Maiden Lane',10015);
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(106,'Rev','Todd','Smythe','210 West 101st',10025);
+
+Insert Into Instructor(Instructor_ID,Salutation,First_Name,Last_Name,Street_Address,Zip)
+
+Values(107,'Dr','Marilyn','Frantzen','254 Bleeker',10005);
+
+
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(7024,'Ft. Lee','NJ');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(7047,'North Bergen','NJ');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(10005,'New York','NY');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(10015,'New York','NY');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(10025,'New York','NY');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(10035,'New York','NY');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(11419,'Richmond Hill','NY');
+
+Insert Into Zipcode(Zip,City,State)
+
+Values(11435,'Jamaica','NY');
+
+
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(330,'Network Administration',1195,130);
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(310,'Operating Systems',1195,NULL);
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(142,'Project Management',1195,20);
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(140,'Systems Analysis',1195,20);
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(130,'Intro to Unix',1195,310);
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(25,'Intro to Programming',1195,140);
+
+Insert Into Course(Course_No,Description,Cost,Prerequisite)
+
+Values(20,'Intro to Information Systems',1195,NULL);
+
+
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(81,20,2,'7/24/2007 9:30','L210',103,15);
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(86,25,2,'6/10/2007 9:30','L210',107,15);
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(89,25,5,'5/15/2007 9:30','L509',103,25);
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(92,25,8,'6/13/2007 9:30','L509',106,25);
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(104,330,1,'7/14/2007 10:30','L511',104,25);
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(119,142,1,'7/14/2007 9:30','L211',103,25);
+
+Insert Into Section(Section_ID,Course_ID,Course_Section_Num,Start_Date_Time,Location,Instructor_ID,Capacity)
+
+Values(155,122,4, '5/4/2007 9:30','L210',107,15);
+
+
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(102,86,1/30/2007,NULL,'B');
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(102,89,1/30/2007,92,'A');
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(103,81,1/30/2007,NULL);
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(104,81,1/30/2007,NULL,'A');
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(163,92,2/10/2007,NULL);
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(223,104,2/16/2007,NULL,'C');
+
+Insert Into Enrollment(Student_ID,Section_ID,Enroll_Date,Final_Grade)
+
+Value(223,119,2/16/2007,NULL);
+
+Select * From Student;
+Select * From Enrollment;
+Select * From Section; 
+Select * From Course;
+Select * From Zipcode;
+Select * From Instructor;
