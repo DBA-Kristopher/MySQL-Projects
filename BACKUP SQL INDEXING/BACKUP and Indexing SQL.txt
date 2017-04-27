@@ -267,24 +267,24 @@ create table NextSeason as select * from seasons where 1 =2;
 insert into nextseason
 select * from Seasons;
 
-#2.	Change the structure of “NextSeason” by adding the following field:
-# a.	Innings (Integer)
+#	Change the structure of Â“NextSeasonÂ” by adding the following field:
+# 	Innings (Integer)
 
 Alter table nextseason add column innings int;
 
-# 3.	Change the structure of “PastSeasons” by adding the following field:
-# a.	Innings (Integer)
+# 	Change the structure of Â“PastSeasonsÂ” by adding the following field:
+# 	Innings (Integer)
 
 Alter table pastseasons add column innings int;
-# 4.	Delete the table “Season”.
+# 	Delete the table Â“SeasonÂ”.
 drop table seasons;
-# 5.	Rename the table “NextSeason” to “Season”.
+# 	Rename the table Â“NextSeasonÂ” to Â“SeasonÂ”.
 alter table nextseason rename to Seasons;
-# 6.	Create an index on the table “Teams”, indexing on “TeamCode”.
+# 	Create an index on the table Â“TeamsÂ”, indexing on Â“TeamCodeÂ”.
 alter table Teams add index index_Teamcode(Teamconde);
-# 7.	Create an index on the table “Players”, indexing on “Team”.
+# 	Create an index on the table Â“PlayersÂ”, indexing on Â“TeamÂ”.
 alter table Players add index index_Teamcode (Teamcode);
-# 8.	Based on the indexes, create a report or display of each team and the associated players on each team.
+# 	Based on the indexes, create a report or display of each team and the associated players on each team.
 
 #Create view index_view as
 select players.Teamcode, concat(Players.Fname) as 'First Name', Phone
@@ -298,8 +298,7 @@ where Players.Teamcode = Teams.Teamconde;
 
 
 
-# Week 5 Assig. 
-# Advanced Database
+
 
 # 1.	Create a view of the database showing the Team Name (TName) and  
 #    the Players last name (LastName) for all Players in the system.
@@ -312,7 +311,7 @@ where teams.Teamconde = Players.Teamcode;
 
 Select * from view_allplayers;
 
-# 2.	Create a view of the database showing the current schedule. The view should show 
+# 	Create a view of the database showing the current schedule. The view should show 
 #    the HomeTeam name (TName) and the AwayTeam name (TName) and the PlayDate. The listing should be in chronological order.
 
 Create or replace view view_MatchUP as
@@ -322,7 +321,7 @@ from Seasons;
 Select * from view_matchup;
 
 
-# 3.	Set up a backup procedure and back up your “Baseball” database.
+# 	Set up a backup procedure and back up your Â“BaseballÂ” database.
 
 Select * from pastseasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv'
 fields terminated by ',' ;
@@ -337,7 +336,7 @@ fields terminated by ',' ;
 
 
 
-# 4.	Establish a restore procedure and restore your “Baseball” database from the backup.
+# 	Establish a restore procedure and restore your Â“BaseballÂ” database from the backup.
 
 
 Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv' into table pastseasons
@@ -352,7 +351,7 @@ fields terminated by ',' ;
 
 
 
-# Week 6 ILAB
+# 
 # 1.	Create a Store Procedure to update the HomeTeamScore and 
 # the AwayTeamScore for the current record every time the procedure is called.
 Delimiter $$
@@ -367,9 +366,6 @@ where AwayTeam = AwayT && HomeTeam = HomeT;
  end$$
  Delimiter ;
 
-# 2.	Write a program to step through the “Season” table 
-# displaying each record and allowing the user to enter the final score for 
-# the game. Call your stored procedure from within the program updating the “Season” table.
 Delimiter $$
 Create procedure Update_Scores_Final
  (seasn int ,IN Awayscore int, IN Homescore int, IN HomeT char(5), AwayT char(5))
@@ -402,10 +398,6 @@ fields terminated by ',' ;
 End $$
 Delimiter ; 
 
-# Week 7 Ilab
-# 1.	Using a programming language, create two reports based on the Baseball database.
-# a.	Create a report to print the upcoming schedule.
-# b.	Create a report to show the team rosters.
 
 
 
